@@ -3,7 +3,7 @@ pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-// import "hardhart/console.sol"
+import "hardhart/console.sol"
 contract Create {
     using Counters for Counters.Counter;
     Counters.Counter public voterID;
@@ -145,16 +145,16 @@ contract Create {
         uint256 idNumber = voterID.current();
         Voter storage voter = voters[_address];
 
-        require(voter.voterAllowed == 0, "Already has rights"); // CHANGED: added error message
+        require(voter.voterAllowed == 0, "Already has rights"); 
 
         voter.voterAllowed = 1;
         voter.voterName = _name;
         voter.voterImage = _image;
         voter.voterAddress = _address;
-        voter.voterId = idNumber; // CHANGED: fixed typo, assigned to voterId
-        voter.voterVote = 1000; // CHANGED: fixed typo, field is voterVote
-        voter.voterVoted = false; // CHANGED: fixed typo, field is voterVoted
-        voter.voterIpfs = _ipfs; // CHANGED: fixed typo, field is voterIpfs
+        voter.voterId = idNumber; 
+        voter.voterVote = 1000; 
+        voter.voterVoted = false; 
+        voter.voterIpfs = _ipfs; 
 
         votersAddress.push(_address);
         emit VoterCreated(
@@ -162,22 +162,22 @@ contract Create {
             _name,
             _image,
             _address,
-            voter.voterAllowed, // CHANGED: fixed typo, field is voterAllowed
-            voter.voterVoted, // CHANGED: fixed typo, field is voterVoted
-            voter.voterVote, // CHANGED: fixed typo, field is voterVote
+            voter.voterAllowed, 
+            voter.voterVoted, 
+            voter.voterVote,
             _ipfs
         );
     }
 
     function vote(address _cadiadteAddress, uint256 _candidateVoteId) external {
         Voter storage voter = voters[msg.sender];
-        require(!voter.voterVoted, "You have already voted"); // CHANGED: fixed typo in field and message
-        require(voter.voterAllowed != 0, "You have no right to vote"); // CHANGED: clarified message
+        require(!voter.voterVoted, "You have already voted"); 
+        require(voter.voterAllowed != 0, "You have no right to vote"); 
 
-        voter.voterVoted = true; // CHANGED: fixed typo, field is voterVoted
-        voter.voterVote = _candidateVoteId; // CHANGED: fixed typo, field is voterVote
+        voter.voterVoted = true; 
+        voter.voterVote = _candidateVoteId; 
         votedVoters.push(msg.sender);
-        candidates[_cadiadteAddress].voteCount += voter.voterAllowed; // CHANGED: fixed typo, field is voterAllowed
+        candidates[_cadiadteAddress].voteCount += voter.voterAllowed;
     }
 
     function getVoterLength() public view returns (uint256) {

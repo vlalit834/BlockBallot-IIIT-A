@@ -1,11 +1,11 @@
 const hre = require("hardhat");
 async function main() {
-  const Lock = await hre.ethers.getcontractFactory("Lock");
-  const lock = await Lock.deploy();
-  await lock.deployed();
-  console.log("lock", lock.address);
+  const Create = await hre.ethers.getContractFactory("Create");
+  const create = await Create.deploy();
+  await create.deployed();
+  console.log("Create deployed to:", create.address);
 }
-main().ctach((error) => {
+main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });

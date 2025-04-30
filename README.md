@@ -81,6 +81,7 @@ The role is determined automatically via the smart contract's `getRole()` functi
 
 ---
 
+
 ## 🔐 Security
 
 - All voting actions are recorded on the blockchain.
@@ -94,4 +95,4 @@ The role is determined automatically via the smart contract's `getRole()` functi
 - Election result visualization (charts)
 - Voter registration via form
 - IPFS integration for identity proof
--Zero-Knowledge Proofs for Privacy-Preserving Voting
+-Zero-Knowledge Proofs for Privacy-Preserving Voting 

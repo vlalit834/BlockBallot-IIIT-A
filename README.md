@@ -94,3 +94,4 @@ The role is determined automatically via the smart contract's `getRole()` functi
 - Election result visualization (charts)
 - Voter registration via form
 - IPFS integration for identity proof
+-Zero-Knowledge Proofs for Privacy-Preserving Voting
